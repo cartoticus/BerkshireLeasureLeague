@@ -1,15 +1,18 @@
 // Berkshire Leisure League — service worker
 // Bump CACHE_NAME whenever the site's own files change so clients pick up the update.
-const CACHE_NAME = "bll-cache-v1";
+const CACHE_NAME = "bll-cache-v3";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
   "./rules.html",
   "./join.html",
   "./assets/style.css",
+  "./assets/share.js",
   "./assets/logo.png",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",
+  "./assets/pay/venmo-qr.png",
+  "./assets/pay/cashapp-qr.png",
   "./manifest.webmanifest",
 ];
 

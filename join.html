@@ -26,17 +26,25 @@
       <a href="index.html">Standings</a>
       <a href="rules.html">Rules</a>
       <a href="join.html" class="active">Join</a>
+      <button type="button" class="share-btn" data-share data-share-title="Berkshire Leisure League" data-share-text="Check out our weekly nine-hole golf league standings!" aria-label="Share this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
     </nav>
   </div>
 </header>
 
 <section class="wrap" style="padding-block:40px;">
   <h1>Interested in Joining Next Season?</h1>
-  <p class="lead" style="color:var(--ink-soft); max-width:60ch; margin-bottom:28px;">
+  <p class="lead" style="color:var(--ink-soft); max-width:60ch; margin-bottom:20px;">
     Leave your info below and we'll reach out when the next season is filling up.
     A round is one nine-hole match per week, scored as both individual stroke play
     and two-player best ball — see the <a href="rules.html">rules</a> for details.
   </p>
+
+  <div class="invite-row">
+    <button type="button" class="btn ghost invite-share" data-share data-share-title="Join the Berkshire Leisure League" data-share-text="I'm playing in the Berkshire Leisure League — a weekly nine-hole golf league. Come sign up for next season!">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Invite a Friend to Join
+    </button>
+  </div>
 
   <form id="join-form" class="join-form" action="https://formspree.io/f/meaoeqrn" method="POST">
     <div class="field">
@@ -158,6 +166,8 @@
     });
   }
 </script>
+
+<script src="assets/share.js" defer></script>
 
 </body>
 </html>
