@@ -27,11 +27,6 @@
       <a href="index.html" class="active">Standings</a>
       <a href="rules.html" class="">Rules</a>
       <a href="join.html" class="">Join</a>
-      <div class="season-switcher">
-        <a href="index.html" class="season-pill active">2026</a>
-        <a href="2027/index.html" class="season-pill">2027</a>
-      </div>
-      <button type="button" class="share-btn" data-share data-share-title="Berkshire Leisure League" data-share-text="Check out our weekly nine-hole golf league standings!" aria-label="Share this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
     </nav>
   </div>
 </header>
@@ -45,7 +40,6 @@
   <div class="cta-row">
     <a class="btn primary" href="join.html">Join Next Season</a>
     <a class="btn ghost" href="rules.html">Read the Rules</a>
-    <button type="button" class="btn pay" id="pay-dues-btn">Pay Dues</button>
   </div>
 </section>
 
@@ -57,25 +51,25 @@
       <div class="card"><ul style="list-style:none;margin:0;padding:0;">
         <li class="board-row lead">
           <span class="rank">1</span>
-          <span class="name"><a class="player-link" href="players/dontae-s.html">dontae S.</a></span>
+          <span class="name">dontae S.</span>
           <span class="score">49</span>
           <span class="pts">10 pts</span>
         </li>
         <li class="board-row ">
           <span class="rank">2</span>
-          <span class="name"><a class="player-link" href="players/josh-b.html">Josh B.</a></span>
+          <span class="name">Josh B.</span>
           <span class="score">59</span>
           <span class="pts">8 pts</span>
         </li>
         <li class="board-row ">
           <span class="rank">3</span>
-          <span class="name"><a class="player-link" href="players/wayne-w.html">Wayne W.</a></span>
+          <span class="name">Wayne W.</span>
           <span class="score">66</span>
           <span class="pts">6 pts</span>
         </li>
         <li class="board-row ">
           <span class="rank">4</span>
-          <span class="name"><a class="player-link" href="players/steven-w.html">Steven W.</a></span>
+          <span class="name">Steven W.</span>
           <span class="score">83</span>
           <span class="pts">4 pts</span>
         </li>
@@ -108,7 +102,7 @@
         <li class="stand-row lead">
           <span class="stand-rank">1</span>
           <div class="stand-main">
-            <span class="stand-name"><a class="player-link" href="players/josh-b.html">Josh B.</a></span>
+            <span class="stand-name">Josh B.</span>
             <span class="stand-sub">Team Josh B.</span>
           </div>
           <div class="stand-stats">
@@ -120,7 +114,7 @@
         <li class="stand-row ">
           <span class="stand-rank">2</span>
           <div class="stand-main">
-            <span class="stand-name"><a class="player-link" href="players/dontae-s.html">dontae S.</a></span>
+            <span class="stand-name">dontae S.</span>
             <span class="stand-sub">Team Josh B.</span>
           </div>
           <div class="stand-stats">
@@ -132,7 +126,7 @@
         <li class="stand-row ">
           <span class="stand-rank">3</span>
           <div class="stand-main">
-            <span class="stand-name"><a class="player-link" href="players/wayne-w.html">Wayne W.</a></span>
+            <span class="stand-name">Wayne W.</span>
             <span class="stand-sub">Team Wayne W.</span>
           </div>
           <div class="stand-stats">
@@ -144,7 +138,7 @@
         <li class="stand-row ">
           <span class="stand-rank">4</span>
           <div class="stand-main">
-            <span class="stand-name"><a class="player-link" href="players/steven-w.html">Steven W.</a></span>
+            <span class="stand-name">Steven W.</span>
             <span class="stand-sub">Team Wayne W.</span>
           </div>
           <div class="stand-stats">
@@ -244,45 +238,6 @@
   })();
 </script>
 
-<div id="pay-dues-modal-backdrop" class="install-modal-backdrop">
-  <div class="install-modal" role="dialog" aria-modal="true" aria-labelledby="pay-dues-modal-title">
-    <button type="button" class="close-btn" id="pay-dues-modal-close" aria-label="Close">✕</button>
-    <h2 id="pay-dues-modal-title">Pay Your Dues</h2>
-    <p class="sub">Weekly dues are $10 per player, due before that week's round. Pay the League Treasurer (currently Wayne W.):</p>
-    <div class="pay-grid">
-      <div class="pay-card">
-        <div class="pay-card-label">Cash</div>
-        <div class="pay-card-handle">In person</div>
-      </div>
-      <div class="pay-card">
-        <div class="pay-card-label">Venmo</div>
-        <div class="pay-card-handle">@MMRHSBowling</div>
-        <img class="pay-qr" src="assets/pay/venmo-qr.png" alt="QR code to pay Wayne W. via Venmo">
-        <a class="btn primary pay-btn" href="https://venmo.com/u/MMRHSBowling?txn=pay&amp;amount=10&amp;note=Berkshire%20Leisure%20League%20dues">Pay with Venmo</a>
-      </div>
-      <div class="pay-card">
-        <div class="pay-card-label">Cash App</div>
-        <div class="pay-card-handle">$WayneWoodard87</div>
-        <img class="pay-qr" src="assets/pay/cashapp-qr.png" alt="QR code to pay Wayne W. via Cash App">
-        <a class="btn primary pay-btn" href="https://cash.app/$WayneWoodard87/10">Pay with Cash App</a>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  (function () {
-    var btn = document.getElementById('pay-dues-btn');
-    var backdrop = document.getElementById('pay-dues-modal-backdrop');
-    if (!btn || !backdrop) return;
-    function openModal() { backdrop.style.display = 'flex'; }
-    function closeModal() { backdrop.style.display = 'none'; }
-    btn.addEventListener('click', openModal);
-    document.getElementById('pay-dues-modal-close').addEventListener('click', closeModal);
-    backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
-  })();
-</script>
-
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -290,8 +245,6 @@
     });
   }
 </script>
-
-<script src="assets/share.js" defer></script>
 
 </body>
 </html>
