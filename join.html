@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join — Berkshire Leisure League</title>
+<meta name="description" content="Sign up your interest in joining the Berkshire Leisure League next season.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#1E3B2C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BLL Golf">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Berkshire Leisure League crest">
+      <span>Berkshire Leisure League</span>
+    </a>
+    <nav class="links">
+      <a href="index.html">Standings</a>
+      <a href="rules.html">Rules</a>
+      <a href="join.html" class="active">Join</a>
+    </nav>
+  </div>
+</header>
+
+<section class="wrap" style="padding-block:40px;">
+  <h1>Interested in Joining Next Season?</h1>
+  <p class="lead" style="color:var(--ink-soft); max-width:60ch; margin-bottom:28px;">
+    Leave your info below and we'll reach out when the next season is filling up.
+    A round is one nine-hole match per week, scored as both individual stroke play
+    and two-player best ball — see the <a href="rules.html">rules</a> for details.
+  </p>
+
+  <form id="join-form" class="join-form" action="https://formspree.io/f/meaoeqrn" method="POST">
+    <div class="field">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone">
+      <span class="hint">Optional — only if you'd rather be reached by text or call.</span>
+    </div>
+    <div class="field">
+      <label for="birdies">18Birdies Username</label>
+      <input type="text" id="birdies" name="18birdies_username">
+      <span class="hint">Optional — don't have the app yet? No problem, just send it over once you've got it set up.</span>
+    </div>
+    <div class="field">
+      <label for="message">Anything else?</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+    </div>
+    <div class="submit-row">
+      <button type="submit" class="btn primary">Submit Interest</button>
+      <span id="form-status"></span>
+    </div>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">Berkshire Leisure League · Nine-Hole Weekly League · Est. 2026</div>
+</footer>
+
+<script>
+  const form = document.getElementById('join-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    status.textContent = 'Sending…';
+    status.className = '';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Thanks — you're on the list! We'll be in touch.";
+        status.className = 'ok';
+      } else {
+        status.textContent = 'Something went wrong — please try again or email us directly.';
+        status.className = 'err';
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong — please try again or email us directly.';
+      status.className = 'err';
+    }
+  });
+</script>
+
+<div id="install-modal-backdrop" class="install-modal-backdrop">
+  <div class="install-modal" role="dialog" aria-modal="true" aria-labelledby="install-modal-title">
+    <button type="button" class="close-btn" id="install-modal-close" aria-label="Close">✕</button>
+    <img class="install-icon" src="assets/icons/icon-192.png" alt="">
+    <h2 id="install-modal-title">Add This to Your Home Screen</h2>
+    <p class="sub">Install the league site like an app for quick access to standings, rules, and sign-ups — even offline.</p>
+
+    <div class="install-platform">
+      <h3>📱 iPhone &amp; iPad (Safari)</h3>
+      <ol>
+        <li>Tap the <kbd>Share</kbd> icon in the toolbar</li>
+        <li>Scroll down and tap <kbd>Add to Home Screen</kbd></li>
+        <li>Tap <kbd>Add</kbd> in the top right</li>
+      </ol>
+    </div>
+
+    <div class="install-platform">
+      <h3>🤖 Android (Chrome)</h3>
+      <ol>
+        <li>Tap the menu <kbd>⋮</kbd> in the top right</li>
+        <li>Tap <kbd>Install app</kbd> (or <kbd>Add to Home screen</kbd>)</li>
+        <li>Tap <kbd>Install</kbd> to confirm</li>
+      </ol>
+    </div>
+
+    <div class="dismiss-row">
+      <button type="button" class="btn primary" id="install-modal-got-it">Got it</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    try {
+      var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      var seen = localStorage.getItem('bll-install-tip-seen');
+      if (isStandalone || seen) return;
+      var backdrop = document.getElementById('install-modal-backdrop');
+      if (!backdrop) return;
+      backdrop.style.display = 'flex';
+      function dismiss() {
+        backdrop.style.display = 'none';
+        try { localStorage.setItem('bll-install-tip-seen', '1'); } catch (e) {}
+      }
+      document.getElementById('install-modal-close').addEventListener('click', dismiss);
+      document.getElementById('install-modal-got-it').addEventListener('click', dismiss);
+      backdrop.addEventListener('click', function (e) { if (e.target === backdrop) dismiss(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dismiss(); });
+    } catch (e) {}
+  })();
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+</script>
+
+</body>
+</html>
